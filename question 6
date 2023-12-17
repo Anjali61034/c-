@@ -1,0 +1,45 @@
+// question 6
+#include <iostream>
+
+using namespace std;
+
+class Triangle {
+private:
+    double base;
+    double height;
+
+public:
+    // Constructor
+    Triangle(double b, double h) : base(b), height(h) {}
+
+    // Function to calculate the area of the triangle (base * height / 2)
+    double calculateArea() {
+        return 0.5 * base * height;
+    }
+
+    // Overloaded function to calculate the area of the triangle using a different parameter type (newBase)
+    double calculateArea(double newBase) {
+        return 0.5 * newBase * height;
+    }
+
+    // Overloaded function to calculate the area of the triangle using a different parameter type (newHeight)
+    double calculateArea(int newHeight) {
+        return 0.5 * base * newHeight;
+    }
+};
+
+int main() {
+    // Creating a Triangle object with base 4.0 and height 6.0
+    Triangle myTriangle(4.0, 6.0);
+
+    // Calculating and displaying the area using the original base and height
+    cout << "Area of the triangle: " << myTriangle.calculateArea() << endl;
+
+    // Calculating and displaying the area using a new base (8.0)
+    cout << "Area with a new base: " << myTriangle.calculateArea(8.0) << endl;
+
+    // Calculating and displaying the area using a new height (10)
+    cout << "Area with a new height: " << myTriangle.calculateArea(10) << endl;
+
+    return 0;
+}
