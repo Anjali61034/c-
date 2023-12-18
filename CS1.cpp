@@ -1,34 +1,47 @@
-/* // question 1
-#include<iostream>
-#include<cmath>
+/*
+ // question 1
+// find the sum of the following series: -
+// s = 1 - (2^n) + (3^n) - (4^n) ..... upto n
 
+#include <iostream>
 using namespace std;
 
-int main(int argc, char *argv[]) {
-    int n;
+int power(int number, int raisedto)
+{
+    if(raisedto == 1)
+    {
+        return number;
+    }
+    return number * power(number, raisedto = raisedto - 1);
+}
 
-    // Check if command line argument is provided
-    if (argc > 1) {
-        n = atoi(argv[1]);  // Convert command line argument to integer
-    } else {
-        // Prompt user to enter the value of n
-        cout << "Enter the value of n: ";
-        cin >> n;
+int main()
+{
+    int i,n;
+    float s;
+
+    cout<<"I can sum the following series"<<endl<<"s = 1 - (2^n) + (3^n) - (4^n) ..... upto n terms"<<endl;
+    cout<<"Enter the number of terms you want to calculate upto:";
+    cin>>n;
+
+    for(i = 1; i<=n; i++)
+    {
+        if(i%2 == 0)
+        {
+            s = s - power(i, n);
+        }
+        else
+        {
+            s = s + power(i, n);
+        }
     }
 
-    double sum = 0.0;
-
-    for (int i = 0; i < n; ++i) {
-        // Calculate each term of the series
-        double term = pow(-2, i) + pow(3, i) - pow(4, i);
-        sum += term;
-    }
-
-    // Display the sum of the series
-    cout << "Sum of the series for the first " << n << " terms: " << sum << endl;
+    cout<<"Your answer is "<<s;
 
     return 0;
 }
+
+
 // question 2
 #include<iostream>
 
