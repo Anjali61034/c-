@@ -1,0 +1,39 @@
+#include <iostream>
+
+int findGCD(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+void addFractions(int num1, int den1, int num2, int den2, int& resultNum, int& resultDen) {
+    int commonDenominator = den1 * den2;
+    resultNum = num1 * den2 + num2 * den1;
+    resultDen = commonDenominator;
+
+    int gcd = findGCD(resultNum, resultDen);
+    resultNum /= gcd;
+    resultDen /= gcd;
+}
+
+int main() {
+    using namespace std;
+
+    int num1, den1, num2, den2;
+    
+    cout << "Enter the first fraction (numerator denominator): ";
+    cin >> num1 >> den1;
+
+    cout << "Enter the second fraction (numerator denominator): ";
+    cin >> num2 >> den2;
+
+    int resultNum, resultDen;
+    addFractions(num1, den1, num2, den2, resultNum, resultDen);
+
+    cout << "Sum of fractions: " << resultNum << "/" << resultDen << endl;
+
+    return 0;
+}
