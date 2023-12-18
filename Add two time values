@@ -1,0 +1,34 @@
+#include <iostream>
+
+int main() {
+    using namespace std;
+
+    // Input for the first time value
+    cout << "Enter the first time value:" << endl;
+    int hours1, minutes1;
+    cout << "Hours: ";
+    cin >> hours1;
+    cout << "Minutes: ";
+    cin >> minutes1;
+
+    // Input for the second time value
+    cout << "Enter the second time value:" << endl;
+    int hours2, minutes2;
+    cout << "Hours: ";
+    cin >> hours2;
+    cout << "Minutes: ";
+    cin >> minutes2;
+
+    // Add the time values
+    int sum_hours = hours1 + hours2;
+    int sum_minutes = minutes1 + minutes2;
+
+    // Adjust the sum if minutes exceed 60
+    sum_hours += sum_minutes / 60;
+    sum_minutes %= 60;
+
+    // Output the result
+    cout << "Sum of durations: " << sum_hours << " hours and " << sum_minutes << " minutes." << endl;
+
+    return 0;
+}
