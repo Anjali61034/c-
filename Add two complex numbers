@@ -1,0 +1,29 @@
+#include <iostream>
+
+// Function to add two complex numbers
+void addComplex(double real1, double imaginary1, double real2, double imaginary2, double& resultReal, double& resultImaginary) {
+    resultReal = real1 + real2;
+    resultImaginary = imaginary1 + imaginary2;
+}
+
+int main() {
+    using namespace std;
+
+    double real1, imaginary1, real2, imaginary2, resultReal, resultImaginary;
+
+    // Input for the first complex number
+    cout << "Enter the real and imaginary parts of the first complex number: ";
+    cin >> real1 >> imaginary1;
+
+    // Input for the second complex number
+    cout << "Enter the real and imaginary parts of the second complex number: ";
+    cin >> real2 >> imaginary2;
+
+    // Add the complex numbers
+    addComplex(real1, imaginary1, real2, imaginary2, resultReal, resultImaginary);
+
+    // Output the result
+    cout << "Sum of complex numbers: " << resultReal << " + " << resultImaginary << "i" << endl;
+
+    return 0;
+}
